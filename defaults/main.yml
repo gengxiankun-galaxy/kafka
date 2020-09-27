@@ -1,0 +1,13 @@
+---
+# defaults file for kafka
+
+OPT_PATH: # docker-compose.yaml 文件部署目录
+SRV_PATH: # kafka 容器运行时持久化目录
+
+KAFKA_DEPLOYMENT_MODE: PseudoDistributed # kafka 部署模式，PseudoDistributed、FullyDistributed
+KAFKA_NODE_NUM: 3 # kafka 节点数
+KAFKA_IMAGE_TAG: latest # kafka 镜像版本
+KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1 # kafka advertised.host.name ，外网访问 IP
+KAFKA_ZOOKEEPER_CONNECT: zookeeper_1:2181, zookeeper_2:2181, zookeeper_3:2181 # 连接 zokeeper 服务
+KAFKA_PORT: 9092 # kafka 对外提供服务端口号
+ZOOKEEPER_NETWORK: zookeeper # 依赖的容器网络
