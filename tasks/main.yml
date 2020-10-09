@@ -9,10 +9,6 @@
   shell: '[[ ! -d "{{ OPT_PATH }}/{{ KAFKA_CONTAINER_NAME }}" ]] && mkdir -vp {{ OPT_PATH }}/{{ KAFKA_CONTAINER_NAME }}'
   ignore_errors: yes
 
-- name: 创建持久化目录
-  shell: '[[ ! -d "{{ SRV_PATH }}/{{ KAFKA_CONTAINER_NAME }}" ]] && mkdir -vp {{ SRV_PATH }}/{{ KAFKA_CONTAINER_NAME }}; chmod 777 {{ SRV_PATH }}/{{ KAFKA_CONTAINER_NAME }}'
-  ignore_errors: yes
-
 - name: 配置环境变量
   copy: src=files/{{ KAFKA_CONTAINER_NAME }}.env dest={{ OPT_PATH }}/{{ KAFKA_CONTAINER_NAME }}/.env
 
