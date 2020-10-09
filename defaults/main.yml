@@ -2,8 +2,8 @@
 # defaults file for kafka
 
 OPT_PATH: # docker-compose.yaml 文件部署目录
-SRV_PATH: # kafka 容器运行时持久化目录
 
+KAFKA_CONTAINER_NAME: kafka
 KAFKA_DEPLOYMENT_MODE: PseudoDistributed # kafka 部署模式，PseudoDistributed、FullyDistributed
 KAFKA_NODE_NUM: 3 # kafka 节点数
 KAFKA_IMAGE_TAG: latest # kafka 镜像版本
