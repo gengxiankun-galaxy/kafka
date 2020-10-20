@@ -2,6 +2,8 @@ version: '3.5'
 
 services:
 
+{% if ZOKKEEPER_DEPLOYMENT_MODE == 'PseudoDistributed' %}
+
 {% for i in range(1,KAFKA_NODE_NUM+1) %}
   kafka_{{ i }}:
     container_name: {{ KAFKA_CONTAINER_NAME }}_{{ i }}
@@ -24,4 +26,19 @@ services:
 networks:
   {{ZOOKEEPER_NETWORK}}:
     external: true
+{% endif %}
+
+{% else %}
+
+  kafka:
+    container_name: kafka
+    image: wurstmeister/kafka:{{ KAFKA_IMAGE_TAG }}
+    hostname: {{ KAFKA_HOSTNAME }}
+    restart: always
+    ports:
+      -  {{ KAFKA_PORT }}:9092
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: {{ KAFKA_ADVERTISED_HOST_NAME }}
+      KAFKA_ZOOKEEPER_CONNECT: {{ KAFKA_ZOOKEEPER_CONNECT }}
+
 {% endif %}
