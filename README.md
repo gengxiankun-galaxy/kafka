@@ -6,7 +6,7 @@ KAFKA
 Installation
 ------------
 
-`ansible-galaxy install gengxiankun.zookeeper`
+`ansible-galaxy install gengxiankun.kafka`
 
 Role Variables
 --------------
