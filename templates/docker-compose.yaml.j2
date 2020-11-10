@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
 
-{% if ZOKKEEPER_DEPLOYMENT_MODE == 'PseudoDistributed' %}
+{% if KAFKA_DEPLOYMENT_MODE == 'PseudoDistributed' %}
 
 {% for i in range(1,KAFKA_NODE_NUM+1) %}
   kafka_{{ i }}:
